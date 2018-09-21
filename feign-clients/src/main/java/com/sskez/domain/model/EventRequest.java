@@ -1,14 +1,19 @@
 package com.sskez.domain.model;
 
-public class Event implements EventI {
+import java.util.Map;
+
+public class EventRequest implements IEvent{
 
     private String eventId;
 
     private String eventName;
 
-    private String payLoad;
+    private Map<String,Object> payLoad;
 
-    public Event(String eventId) {
+    public EventRequest() {
+    }
+
+    public EventRequest(String eventId) {
         this.eventId = eventId;
     }
 
@@ -20,7 +25,7 @@ public class Event implements EventI {
         this.eventName = eventName;
     }
 
-    public void setPayLoad(String payLoad) {
+    public void setPayLoad(Map<String,Object>  payLoad) {
         this.payLoad = payLoad;
     }
 
@@ -35,11 +40,8 @@ public class Event implements EventI {
     }
 
     @Override
-    public String getPayLoad() {
+    public Map<String,Object>  getPayLoad() {
         return payLoad;
     }
-
-
-
 
 }
