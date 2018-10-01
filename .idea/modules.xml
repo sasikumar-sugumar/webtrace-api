@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/eventpublisher/eventpublisher.iml" filepath="$PROJECT_DIR$/eventpublisher/eventpublisher.iml" />
       <module fileurl="file://$PROJECT_DIR$/eventstore/eventstore.iml" filepath="$PROJECT_DIR$/eventstore/eventstore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eventsubscriber/eventsubscriber.iml" filepath="$PROJECT_DIR$/eventsubscriber/eventsubscriber.iml" />
       <module fileurl="file://$PROJECT_DIR$/feign-clients/feignclients.iml" filepath="$PROJECT_DIR$/feign-clients/feignclients.iml" />
       <module fileurl="file://$PROJECT_DIR$/webtrace-api.iml" filepath="$PROJECT_DIR$/webtrace-api.iml" />
     </modules>

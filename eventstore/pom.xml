@@ -12,11 +12,18 @@
     <artifactId>eventstore</artifactId>
     <packaging>jar</packaging>
 
+    <properties>
+        <project.location>/Users/euro/IdeaProjects/webtrace-api</project.location>
+        <feign.location>${project.location}/feign-clients/target/feign-clients-0.0.1-SNAPSHOT.jar</feign.location>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>sskez</groupId>
             <artifactId>feign-clients</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${feign.location}</systemPath>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
