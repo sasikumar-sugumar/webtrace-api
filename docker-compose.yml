@@ -1,0 +1,21 @@
+# Docker compose to build and run the read service
+version: '3'
+services:
+  eureka-server:
+    build:
+      context: .
+      dockerfile: eureka/Dockerfile.eurekaserver
+    ports:
+    - "8761:8761"
+  dgl-webtrace-subscriber-service:
+    build:
+      context: .
+      dockerfile: eventsubscriber/Dockerfile.service
+    ports:
+    - "9002:9002"
+    environment:
+    - "SPRING_PROFILES_ACTIVE=dev"
+    links:
+      - eureka-server
+    depends_on:
+      - eureka-server
