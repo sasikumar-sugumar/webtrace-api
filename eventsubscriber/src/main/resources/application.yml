@@ -1,8 +1,20 @@
-server:
-  port: 9001
+
+spring:
+  profiles:
+    active: dev
+
+---
 spring:
   application:
     name: DGL-WebTraceSubscriber
   profiles: dev
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:8761/eureka
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    preferIpAddress: true
 
-
+server:
+  port: 9001

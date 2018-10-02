@@ -1,8 +1,0 @@
-
-
-eureka:
-  client:
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://eureka-server:8761}/eureka/
-

@@ -1,21 +1,52 @@
 # Docker compose to build and run the read service
 version: '3'
 services:
-  eureka-server:
+  eureka:
     build:
       context: .
       dockerfile: eureka/Dockerfile.eurekaserver
     ports:
     - "8761:8761"
+    container_name: eureka
+    environment:
+    - EUREKA_INSTANCE_PREFERIPADDRESS=true
   dgl-webtrace-subscriber-service:
     build:
       context: .
       dockerfile: eventsubscriber/Dockerfile.service
     ports:
-    - "9002:9002"
+    - "9001:9001"
+    links:
+    - eureka
     environment:
     - "SPRING_PROFILES_ACTIVE=dev"
-    links:
-      - eureka-server
+    - EUREKA_INSTANCE_PREFER_IP_ADDRESS=true
     depends_on:
-      - eureka-server
+      - eureka
+  dgl-webtrace-store-service:
+    build:
+      context: .
+      dockerfile: eventstore/Dockerfile.service
+    ports:
+    - "9002:9002"
+    links:
+    - eureka
+    environment:
+    - "SPRING_PROFILES_ACTIVE=dev"
+    - EUREKA_INSTANCE_PREFER_IP_ADDRESS=true
+    depends_on:
+    - eureka
+  dgl-webtrace-publisher-service:
+    build:
+      context: .
+      dockerfile: eventpublisher/Dockerfile.service
+    ports:
+    - "9003:9003"
+    links:
+    - eureka
+    environment:
+    - "SPRING_PROFILES_ACTIVE=dev"
+    - EUREKA_INSTANCE_PREFER_IP_ADDRESS=true
+    depends_on:
+    - eureka
+

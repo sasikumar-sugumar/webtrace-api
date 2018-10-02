@@ -14,14 +14,15 @@
 
     <properties>
         <project.location>/Users/euro/IdeaProjects/webtrace-api</project.location>
-        <feign.location>${project.location}/feign-clients/target/feign-clients-0.0.1-SNAPSHOT.jar</feign.location>
+        <feign.location>${project.location}/feign-clients/target/feign-clients-2.0.4.RELEASE.jar</feign.location>
     </properties>
+
 
     <dependencies>
         <dependency>
             <groupId>sskez</groupId>
             <artifactId>feign-clients</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>2.0.4.RELEASE</version>
             <scope>system</scope>
             <systemPath>${feign.location}</systemPath>
         </dependency>
@@ -36,7 +37,19 @@
             <version>2.9.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
 
+        </dependency>
     </dependencies>
+    <build><plugins>
+    <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+            <includeSystemScope>true</includeSystemScope>
+        </configuration>
+    </plugin></plugins></build>
 
 </project>
